@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+		{% for a in glogo %}
+			{{ a.title_logo }}
+		{% endfor %}
+	</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/particles.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}" />
+	<link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i' %}" rel="stylesheet">
+	
+	
+	<link href="{% static 'css/datepicker3.css' %}" rel="stylesheet">
+
+	<link href="{% static 'css/styles-login.css' %}" rel="stylesheet">
+	
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--css for Htmll-->
+	<link rel="stylesheet" type="text/css" href="../../static/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="../../static/css/bootstrap/bootstrap.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
+</head>
+<body id="bs">
+<header>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+		<div class="container">
+			{% if glogo %}
+				{% for a in glogo %}
+					<a href="{% url 'index' %}" class="navbar-brand logo">{{ a.title_logo }}</a>
+				{% endfor %}
+				{% else %}
+					error
+			{% endif %}
+		</div>
+		
+		<!--Menu-->
+		<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle menu-font" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fas fa-bars"></i> HOME
+			</button>
+			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<a class="dropdown-item" href="#">Something else here</a>
+			</div>
+		</div>
+		<!--Search-->		
+		<div class="col-8 justify-content-center container">
+			<!-- <div data-toggle="modal" > -->
+			<input type="search" class="form-control bg-white text-dark global_search container-fluid" placeholder="Search" name="global_search" id="fun_search" >
+			<i class="icon_search fas fa-search" ></i>
+			<span class="icon_slash flex-column" id="i_slash"></span>		
+			
+			<!--Search Results-->
+			<br>
+			<div class="position-absolute container-fluid search_results" id="search_results">
+				<div class="bg-light p-1 shadow" >
+					<div class="row">
+						<div class="col-sm-1">img</div>
+						<div class="col-11">title</div>
+						<span class="col-12">span</span>
+					</div>
+				</div>
+				
+			</div>
+			<!-- </div> -->
+		</div>
+
+
+		<!--Log In-->
+		<div class="container col-1 justify-content-start">
+			<button type="button" class="btn btn-outline-light">
+				<i class="fas fa-sign-in-alt"></i> Log In
+			</button>
+			<!--<i class="fas fa-user"></i>-->
+		</div>
+	</nav>
+	
+	
+</header>
+
+
+
+<div class="container">
+	{% include 'OUTempl/feed.html' %}
+</div>
+
+
+
+
+<footer class="modal-footer bg-dark ">
+	<div class="">
+			<p class="text-warning">Beta version 1.0.0</p>
+		</div>
+</footer>
+	
+	
+	<!--My JS-->
+	<script type="text/javascript" src="../../static/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../../static/js/ou-js/global-js.js"></script>
+
+	<!--Django JS-->
+	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap/bootstrap-bundle.js' %}"></script>
+	<script src="{% static 'js/ou-js/global-js.js' %}"></script>
+	<script src="{% static 'https://kit.fontawesome.com/c9a62c549a.js' %}"></script>
+	
+	<!--HTML JS-->
+	<script type="text/javascript" src="../../static/js/bootstrap/bootstrap.bundle.js"></script>	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	
+	<script src="https://kit.fontawesome.com/c9a62c549a.js"></script>
+
+</body>
+</html>
